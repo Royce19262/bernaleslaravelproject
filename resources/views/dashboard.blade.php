@@ -31,6 +31,7 @@
                         <h3 class="text-lg font-medium mb-4"> Add New Student</h3>
                     <form method="POST" action="{{ route('student.store') }}">
                         @csrf
+                        @method('POST')
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>  
                                 <label for="name" class="block text-gray-700">Name</label>
@@ -77,6 +78,7 @@
                             </tr>
                         </thead>
                         <tbody id="student-table">
+
                             @foreach ($students as $key => $student)
                                 <tr>
                                     <td class= "py-2 border-b px-4">{{ $key + 1 }}</td>
@@ -90,12 +92,13 @@
                                         ">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-red-500
+                                          <button type="submit" class="text-red-500
                                             hover:text-red-700" >Delete</button>
                                         </form>
                                     </td>
                                 </tr>
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>
